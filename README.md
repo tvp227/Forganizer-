@@ -1,2 +1,2 @@
 # Forganizer-
-Automated way to orginise files on PC.
+Automated way to orginise files on PC..
