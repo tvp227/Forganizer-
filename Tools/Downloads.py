@@ -18,15 +18,20 @@ def organize_downloads_folder():
             _, file_extension = os.path.splitext(filename)
             file_extension = file_extension[1:].lower()  # Remove the dot and convert to lowercase
 
-            # Create a subdirectory if it doesn't exist
+            # Check if the subdirectory already exists
             if file_extension not in extensions:
                 extensions[file_extension] = os.path.join(downloads_folder, file_extension)
-                os.makedirs(extensions[file_extension])
+                os.makedirs(extensions[file_extension], exist_ok=True)
 
             # Move the file to the corresponding subdirectory
             destination = os.path.join(extensions[file_extension], filename)
-            shutil.move(file_path, destination)
-            print(f"Moved {filename} to {file_extension} folder.")
+
+            # Check if the file is not already in the destination
+            if not os.path.exists(destination):
+                shutil.move(file_path, destination)
+                print(f"Moved {filename} to {file_extension} folder.")
+            else:
+                print(f"{filename} already exists in {file_extension} folder.")
 
     print("Organizing completed.")
 

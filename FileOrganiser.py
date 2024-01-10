@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import PhotoImage
 import subprocess
 
-background = (r"Prereq\Background.png")
+background = (r"C:\Dev\Forganizer-\Prereq")
 
 # Tools
 def DocOrg():
@@ -20,7 +20,7 @@ window = tk.Tk()
 window.title("Forganizer by Tom Porter")
 window.geometry("410x100")
 window.resizable(False, False)
-background_image = PhotoImage(file=background)
+background_image = PhotoImage(file= background)
 background_label = tk.Label(window, image=background_image)
 background_label.place(relwidth=1, relheight=1)
 
